@@ -6,62 +6,68 @@
   font-display: swap;
 }
 
-*{ 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box;
-}
-body { 
-    background: black; 
-    font-family: 'Alagard'; 
-    color: #eee; 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html, body {
-  margin: 0;
-  padding: 0;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;      /* prevent scrollbars */
-}
-#game-container { 
-    width: 100%;
-    height:100%; 
-
-    
-    opacity: 0; 
-    transition: opacity 1.5s ease; 
-}
-#game-container.visible { 
-    opacity: 1; 
-}
-/* And ensure the canvas itself can stretch to its parent */
-#game-container canvas {
-  display: block;        /* remove inline-block whitespace */
-  width: 100% !important;
-  height: 100% !important;
+  overflow: hidden;
 }
 
-/* make the splash fill 100% of viewport */
+body {
+  background: black;
+  font-family: 'Alagard', serif;
+  color: #eee;
+}
+
 #splash {
   position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
-  background: black;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #eee;
-  z-index: 999;  /* above everything */
-
+  z-index: 999;
   opacity: 1;
   transition: opacity 0.8s ease;
 }
+
 #splash.fade-out {
   opacity: 0;
 }
 
-#splash h1 {
+#splash-message {
+  color: #9BBC0F;
+  font-family: 'Alagard', serif;
   font-size: 2.5rem;
-  text-align: center;
+  opacity: 1;
+  transition: opacity 0.8s ease;
+}
+
+#splash-message.fade-out-msg {
+  opacity: 0;
+}
+
+#game-container {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+#game-container.visible {
+  opacity: 1;
+}
+
+#game-container canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
 }

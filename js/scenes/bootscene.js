@@ -1,15 +1,16 @@
 // js/scenes/bootscene.js
-import * as Phaser from 'https://cdn.jsdelivr.net/npm/phaser@3/dist/phaser.esm.js'
+import * as Phaser from "https://cdn.jsdelivr.net/npm/phaser@3/dist/phaser.esm.js";
 
 export default class BootScene extends Phaser.Scene {
   constructor() {
-    super('Boot')
+    super("Boot");
   }
+
   preload() {
-    this.load.image('tiles', 'assets/tilesets/dungeon_tiles.png')
-    // …etc
+    // preload the music
+    this.load.audio("dungeonMusic", "assets/audio/dungeon.mp3");
   }
   create() {
-    this.scene.start('Dungeon')
+    this.scene.start("Dungeon");
   }
 }
